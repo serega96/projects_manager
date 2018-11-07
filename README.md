@@ -1,24 +1,18 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a simple project and task management web application.
 
-Things you may want to cover:
+The application has the following functions:
 
-* Ruby version
+* Registration
 
-* System dependencies
+* Profile editing
 
-* Configuration
+* View/add/edit/delete projects
 
-* Database creation
+* View/add/edit/delete tasks
 
-* Database initialization
+* Adding tasks to project
 
-* How to run the test suite
+* Add/remove users from tasks
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
