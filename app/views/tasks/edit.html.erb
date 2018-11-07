@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col-lg-12 center bottom">
+    <h2>Editing task</h2>
+  </div>
+</div>
+
+<%= render 'form', task: @task %>
+
+<div class="row" style="text-align:right">
+  <%= link_to 'Back', @project, :class => "btn btn-warning" %>
+</div>

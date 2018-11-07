@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-lg-4"></div>
+  <% if task.errors.any? %>
+    <div id="error_explanation" class="col-lg-4">
+      <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+        <% task.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="col-lg-4"></div>
+</div>
+<div class="row center">
+  <div class="col-lg-4"></div>
+  <div class="col-lg-4">
+    <%= simple_form_for([@project, @task]) do |f| %>
+
+      <%= f.input :title, required: true %>
+      <%= f.input :description %>
+      <%= f.input :status, :collection => Task.statuses.map {|a| [a.first, a.first]}, :include_blank => false %>
+      <h4>Users</h4>
+      <div class="row">
+        <%= f.collection_check_boxes(:user_ids, User.all, :id, :first_name) do |b| %>
+          <div class="col-lg-4"> <%= b.label {b.check_box + b.object.first_name + " " + b.object.last_name} %></div>
+        <% end %>
+      </div>
+      <br>
+      <%= f.button :submit, "Submit", class: 'btn btn-primary' %>
+    <% end %>
+
+  </div>
+  <div class="col-lg-4"></div>
+</div>

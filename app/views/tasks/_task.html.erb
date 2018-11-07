@@ -1,0 +1,19 @@
+<tr>
+  <td><%= task.title %></td>
+  <td><%= task.description %></td>
+  <td><%= task.status %></td>
+  <td>
+    <% @users = task.users %>
+    <% @users.each do |user| %>
+      <%= user.first_name %>
+      <%= user.last_name %><br/>
+    <% end %>
+  </td>
+  <td>
+    <%= link_to "Edit", edit_project_task_path(@project.id, task.id) %>
+  </td>
+  <td>
+    <%= link_to "Delete", project_task_path(@project, task.id),
+                method: :delete, data: {confirm: "Are you sure?"} %>
+  </td>
+</tr>

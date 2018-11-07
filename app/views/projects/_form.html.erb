@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-lg-4"></div>
+
+  <%= simple_form_for(@project) do |form| %>
+    <% if project.errors.any? %>
+      <div id="error_explanation" class="col-lg-4">
+        <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
+        <ul>
+          <% project.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="col-lg-4"></div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4"></div>
+      <div class="col-lg-4">
+        <div class="field">
+          <%= form.input :name, id: :project_name %>
+        </div>
+
+        <div class="field">
+          <%= form.input :summary, id: :project_summary %>
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <%= form.input :start_date, as: :date, html5: true %>
+          </div>
+          <div class="col-lg-6">
+            <%= form.input :end_date, as: :date, html5: true %>
+          </div>
+        </div>
+
+
+        <div class="actions">
+          <%= form.button :submit %>
+        </div>
+      </div>
+    </div>
+  <% end %>

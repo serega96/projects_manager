@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Projects manager</title>
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body style="background-color:rgba(163,200,202,0.58);">
+
+<div class="container">
+
+  <div class="row" style="text-align: right; background-color: rgba(139,167,212,0.57)">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      Logged in as <strong><%= current_user.first_name %> <%= current_user.last_name %></strong>.
+      <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+      <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %>
+    </div>
+  </div>
+
+  <div class="row center" style="margin-bottom:15px; border-bottom-left-radius: 80px; border-bottom-right-radius: 80px; background-color: rgba(139,167,212,0.57)">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <h1>Projects manager</h1>
+    </div>
+  </div>
+
+  <div class="row center">
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
+  </div>
+
+  <%= yield %>
+
+</div>
+</body>
+
+</html>

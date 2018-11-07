@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12 center">
+    <h2><%= @project.name %></h2>
+  </div>
+</div>
+<div class="row">
+  <p>
+    <strong>Summary:</strong>
+    <%= @project.summary %>
+  </p>
+
+  <p>
+    <strong>Start date:</strong>
+    <%= @project.start_date %>
+  </p>
+
+  <p>
+    <strong>End date:</strong>
+    <%= @project.end_date %>
+  </p>
+  <%= link_to 'Edit', edit_project_path(@project), :class => "btn btn-info" %>
+</div>
+
+<div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12 center">
+    <h3>Tasks</h3>
+  </div>
+
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th>Title</th>
+      <th>Desription</th>
+      <th>Status</th>
+      <th>Users</th>
+      <th class="center" colspan="2">Actions</th>
+    </tr>
+    </thead>
+    <%= render @project.tasks %>
+  </table>
+  <div class="col-lg-12 center">
+    <h2> <%= link_to 'Add Task', new_project_task_path(@project), :class => "btn btn-primary" %> </h2>
+  </div>
+</div>
+
+<div class="row" style="text-align:right">
+  <%= link_to 'Back', projects_path, :class => "btn btn-warning" %>
+</div>
