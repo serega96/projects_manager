@@ -6,5 +6,6 @@
 
 <%= render 'form', project: @project %>
 
-<%= link_to 'Show', @project %> |
-<%= link_to 'Back', projects_path %>
+<div class="row" style="text-align:right">
+  <%= link_to 'Back', @project, :class => "btn btn-warning" %>
+</div>
